@@ -42,7 +42,7 @@ class Feed
         $CI =& get_instance();
         
         if (empty($this->lang)) $this->lang = $CI->config->item('language');
-        if (empty($this->link)) $CI->config->item('base_url');
+        if (empty($this->link)) $this->link = $CI->config->item('base_url');
         if (empty($this->pubdate)) $this->pubdate = date('D, d M Y H:i:s O');
         
         $data['channel'] = array(

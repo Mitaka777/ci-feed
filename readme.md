@@ -1,6 +1,6 @@
 # [ci-feed](http://roumen.me/projects/ci-feed) library
 
-A simple feed generator for CodeIgniter.
+A simple atom/rss feed generator for CodeIgniter.
 
 ## Installation
 
@@ -19,7 +19,7 @@ public function feed()
     // create new instance
     $feed = new Feed();
 
-    // set title, description, link, language and pubdate for your feed
+    // set your feed's title, description, link, pubdate and language
     $feed->title = 'Your title';
     $feed->description = 'Your description';
     $feed->link = 'http://yoursite.com';
@@ -29,11 +29,11 @@ public function feed()
     // add posts to the feed
     foreach ($posts as $post)
     {
-        // title, author, url, pubdate, description
+        // set item's title, author, url, pubdate and description
         $feed->add($post->title, $post->author, $post->slug, $post->created, $post->description);
     }
     
-    // show the feed (options: 'atom' (recommended) or 'rss')
+    // show your feed (options: 'atom' (recommended) or 'rss')
     $feed->render('atom');
 }
 ```
