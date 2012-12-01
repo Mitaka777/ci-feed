@@ -14,7 +14,7 @@
             <link><?php echo $item['link'] ?></link>
             <guid isPermaLink="true"><?php echo $item['link'] ?></guid>
             <description><![CDATA[<?php echo $item['description'] ?>]]></description>
-            <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/"><?php echo $item['author'] ?>></dc:creator>
+            <dc:creator xmlns:dc="http://purl.org/dc/elements/1.1/"><?php echo $item['author'] ?></dc:creator>
             <pubDate><?php echo date('D, d M Y H:i:s O', strtotime($item['pubdate'])) ?></pubDate>
         </item>
         <?php endforeach; ?>
