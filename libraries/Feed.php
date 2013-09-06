@@ -3,8 +3,8 @@
  * Feed generator class for ci-feed library.
  *
  * @author Roumen Damianoff <roumen@dawebs.com>
- * @version 1.2.1
- * @link http://roumen.me/projects/ci-feed
+ * @version 1.2.2
+ * @link http://roumen.it/projects/ci-feed
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
 
