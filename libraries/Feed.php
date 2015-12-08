@@ -1,4 +1,5 @@
 <?php if (!defined('BASEPATH')) exit ('No direct script access allowed');
+
 /**
  * Feed generator class for ci-feed library.
  *
