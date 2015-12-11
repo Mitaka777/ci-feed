@@ -165,7 +165,7 @@ class Feed
 
         if ($this->ctype == null)
         {
-            ($format == 'rss') ? $this->ctype = 'application/rss+xml' : $this->ctype = 'application/atom+xml';
+            ($format == 'rss') ? $type = 'application/rss+xml' : $type = 'application/atom+xml';
         }
         else
         {
