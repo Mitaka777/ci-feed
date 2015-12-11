@@ -1,4 +1,4 @@
-<?php header('Content-type: '.$ctype.'; charset='.$charset); ?>
+<?php header('Content-Type: '.$ctype.'; charset='.$charset); ?>
 <?php echo '<?xml version="1.0" encoding="utf-8"?>'."\n"; ?>
 <feed xmlns="http://www.w3.org/2005/Atom"<?php foreach($namespaces as $n) echo " ".$n; ?>>
     <title type="html"><?php echo $channel['title'] ?></title>
