@@ -4,7 +4,7 @@
  * Feed generator class for ci-feed library.
  *
  * @author Roumen Damianoff <roumen@dawebs.com>
- * @version 1.3.1
+ * @version 1.3.2
  * @link http://roumen.it/projects/ci-feed
  * @license http://opensource.org/licenses/mit-license.php MIT License
  */
@@ -50,8 +50,6 @@ class Feed
             $description = mb_substr($description, 0, $this->shorteningLimit, 'UTF-8');
         }
 
-        $pubdate = $this->formatDate($pubdate);
-
         $this->items[] = array(
             'title' => $title,
             'author' => $author,
@@ -79,8 +77,6 @@ class Feed
             $a['description'] = mb_substr($a['description'], 0, $this->shorteningLimit, 'UTF-8');
         }
 
-        $a['pubdate'] = $this->formatDate($a['pubdate']);
-
         $this->items[] = $a;
     }
 
@@ -106,18 +102,7 @@ class Feed
 
         if ($this->ctype == null)
         {
-            switch ($format)
-            {
-                case "rss":
-                    $this->ctype = 'application/rss+xml';
-                    break;
-                case "atom":
-                    $this->ctype = 'application/atom+xml';
-                    break;
-                default:
-                    $this->ctype = 'application/atom+xml';
-                    break;
-            }
+            ($format == 'rss') ? $this->ctype = 'application/rss+xml' : $this->ctype = 'application/atom+xml';
         }
 
         if (empty($this->lang)) $this->lang = $CI->config->item('language');
@@ -125,6 +110,11 @@ class Feed
         if (empty($this->pubdate)) $this->pubdate = date('D, d M Y H:i:s O');
 
         $this->pubdate = $this->formatDate($this->pubdate, $format);
+
+        foreach($this->items as $k => $v)
+        {
+            $this->items[$k]['pubdate'] = $this->formatDate($this->items[$k]['pubdate'], $format);
+        }
 
         $channel = array(
             'title'=>$this->title,
@@ -175,18 +165,7 @@ class Feed
 
         if ($this->ctype == null)
         {
-            switch ($format)
-            {
-                case "rss":
-                    $type = 'application/rss+xml';
-                    break;
-                case "atom":
-                    $type = 'application/atom+xml';
-                    break;
-                default:
-                    $type = 'application/atom+xml';
-                    break;
-            }
+            ($format == 'rss') ? $this->ctype = 'application/rss+xml' : $this->ctype = 'application/atom+xml';
         }
         else
         {
