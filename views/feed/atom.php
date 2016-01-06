@@ -1,8 +1,8 @@
 <?php header('Content-Type: '.$ctype.'; charset='.$charset); ?>
 <?php echo '<?xml version="1.0" encoding="utf-8"?>'."\n"; ?>
 <feed xmlns="http://www.w3.org/2005/Atom"<?php foreach($namespaces as $n) echo " ".$n; ?>>
-    <title type="html"><?php echo $channel['title'] ?></title>
-    <subtitle type="html"><?php echo $channel['description'] ?></subtitle>
+    <title type="text"><?php echo $channel['title'] ?></title>
+    <subtitle type="html"><![CDATA[<?php echo $channel['description'] ?>]]></subtitle>
     <link href="<?php echo $channel['link'] ?>"></link>
     <id><?php echo $channel['link'] ?></id>
     <link rel="alternate" type="text/html" href="<?php echo $channel['link'] ?>" ></link>
@@ -17,9 +17,9 @@
         <?php foreach($items as $item) : ?>
         <entry>
             <author>
-                <name><![CDATA[<?php echo $item['author'] ?>]]></name>
+                <name><?php echo $item['author'] ?></name>
             </author>
-            <title type="html"><![CDATA[<?php echo $item['title'] ?>]]></title>
+            <title type="text"><?php echo $item['title'] ?></title>
             <link rel="alternate" type="text/html" href="<?php echo $item['link'] ?>"></link>
             <id><?php echo $item['link'] ?></id>
             <summary type="html"><![CDATA[<?php echo $item['description'] ?>]]></summary>

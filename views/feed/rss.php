@@ -2,8 +2,8 @@
 <?php echo '<?xml version="1.0" encoding="UTF-8"?>'."\n"; ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:media="http://search.yahoo.com/mrss/"<?php foreach($namespaces as $n) echo " ".$n; ?>>
     <channel>
-        <title><![CDATA[<?php echo $channel['title'] ?>]]></title>
-        <link><?php echo $channel['link'] ?></link>
+        <title><?php echo $channel['title'] ?></title>
+        <link><![CDATA[<?php echo $channel['link'] ?>]]></link>
         <description><?php echo $channel['description'] ?></description>
         <atom:link href="<?php echo $channel['link'] ?>" rel="self"></atom:link>
         <?php if (!empty($channel['logo'])) : ?>
